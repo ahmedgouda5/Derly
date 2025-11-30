@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { SidebarDemo } from "@/components/shared/SidebarDemo";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -10,11 +9,7 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: "Derly",
-  description:
-    "Darly is a dashboard for managing your market to saveing and tracking your money",
-  icons: {
-    icon: "/Subtract.jpg",
-  },
+  description: "Derly is a dashboard for managing your market to saveing and tracking your money",
 };
 
 export default function RootLayout({
@@ -25,14 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nunito.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div>{children}</div>
-        </ThemeProvider>
+        <div className="flex">
+          <SidebarDemo>
+            <div className="p-2 md:p-8">{children}</div>
+          </SidebarDemo>
+        </div>
       </body>
     </html>
   );

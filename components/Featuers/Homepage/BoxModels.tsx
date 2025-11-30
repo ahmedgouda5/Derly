@@ -25,6 +25,7 @@ const BoxModels = () => {
                 src="/Home/Icon1.png"
                 alt="icon"
                 width={50}
+                priority
                 height={50}
                 className="object-contain"
               />

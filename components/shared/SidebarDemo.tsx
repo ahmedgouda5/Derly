@@ -12,41 +12,44 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFileInvoice } from "react-icons/fa6";
+import { ModeToggle } from "./ModelToggle";
+import Footer from "./footer";
+
 export function SidebarDemo({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
 
   const links = [
     {
       label: "Dashboard",
-      href: "/dashboard",
+      href: "derly/dashboard",
       icon: (
         <IconBrandTabler className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Invoice",
-      href: "/invoice",
+      href: "derly/invoice",
       icon: (
         <FaFileInvoice className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Profile",
-      href: "/profile",
+      href: "derly/profile",
       icon: (
         <IconUserBolt className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Settings",
-      href: "/settings",
+      href: "derly/settings",
       icon: (
         <IconSettings className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Logout",
-      href: "/logout",
+      href: "derly/logout",
       icon: (
         <IconArrowLeft className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -57,14 +60,14 @@ export function SidebarDemo({ children }: { children: React.ReactNode }) {
     <div
       className={cn(
         "mx-auto flex w-full max-w-7xl flex-1 flex-col overflow-hidden rounded-md border border-neutral-200 bg-gray-100 md:flex-row dark:border-neutral-700 dark:bg-neutral-800",
-        "h-screen"
+        "min-h-screen" // ← تعديل مهم جداً
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between gap-10">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             {open ? <Logo /> : <LogoIcon />}
-            <div className="mt-8 flex flex-col  gap-10">
+            <div className="mt-8 flex flex-col gap-10">
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
               ))}
@@ -132,25 +135,35 @@ const LogoIcon = () => (
 
 const Topbar = () => {
   return (
-    <div className=" hidden md:flex w-full h-14 border-b-2  py-5 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900  items-center px-4 justify-between">
-      <h2 className="text-lg font-semibold dark:text-white">Dashboard</h2>
+    <div className="hidden md:flex w-full h-14 border-b-2 py-5 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 items-center px-4 justify-between">
+      <h2 className="text-lg font-semibold dark:text-white">Derly</h2>
 
       <div className="flex items-center gap-4">
-        <button className="bg-[#6361e4] hover:bg-[#8280FF]/80 flex items-center gap-2 text-sm px-3 py-1 rounded-md border text-white">
+        <Link
+          href="Auth/login"
+          className="bg-[#6361e4] hover:bg-[#8280FF]/80 flex items-center gap-2 text-sm px-3 py-1 rounded-md border text-white"
+        >
           Login
-        </button> 
+        </Link>
+        <ModeToggle />
       </div>
     </div>
   );
 };
+
 const Dashboard = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-1 flex-col">
-      <Topbar />
+      <div className="flex items-center gap-4">
+        <Topbar />
+      </div>
 
-      <div className="">
+      <div className="flex-1">
+        {" "}
+        {/* ← هنا أهم تعديل */}
         {children}
       </div>
+      <Footer />
     </div>
   );
 };
