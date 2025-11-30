@@ -23,7 +23,6 @@ const chartData = [
   { month: "February", desktop: 305 },
   { month: "March", desktop: 237 },
   { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
 ]
 
 const chartConfig = {

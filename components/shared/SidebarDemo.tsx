@@ -21,35 +21,35 @@ export function SidebarDemo({ children }: { children: React.ReactNode }) {
   const links = [
     {
       label: "Dashboard",
-      href: "derly/dashboard",
+      href: "/derly/dashboard",
       icon: (
         <IconBrandTabler className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Invoice",
-      href: "derly/invoice",
+      href: "/derly/invoice",
       icon: (
         <FaFileInvoice className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Profile",
-      href: "derly/profile",
+      href: "/derly/profile",
       icon: (
         <IconUserBolt className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Settings",
-      href: "derly/settings",
+      href: "/derly/settings",
       icon: (
         <IconSettings className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Logout",
-      href: "derly/logout",
+      href: "/derly/logout",
       icon: (
         <IconArrowLeft className="h-5 w-5 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -160,7 +160,6 @@ const Dashboard = ({ children }: { children: React.ReactNode }) => {
 
       <div className="flex-1">
         {" "}
-        {/* ← هنا أهم تعديل */}
         {children}
       </div>
       <Footer />

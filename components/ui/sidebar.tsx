@@ -116,11 +116,11 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-neutral-100 dark:bg-neutral-800 w-full"
+          "h-10 px-4 py-4 flex flex-row md:hidden  items-center justify-between bg-white dark:bg-neutral-800 w-full"
         )}
         {...props}
       >
-        <div className="flex justify-between z-20 w-full ">
+        <div className="flex justify-between z-20 w-full  ">
           <div className="flex items-center gap-2">
             <Image
               src="/Subtract.jpg"
